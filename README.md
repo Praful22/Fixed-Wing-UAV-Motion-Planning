@@ -1,2 +1,2 @@
 # Motion_planning
-Motion Planning using MATLAB/Simulink.
+Motion Planning example using Rapidly Exploring Random Trees using MATLAB/Simulink.
