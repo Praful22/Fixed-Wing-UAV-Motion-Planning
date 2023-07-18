@@ -1,0 +1,59 @@
+% Three Dimensional Occupancy Map with Navigation Toolbox
+rng(9, 'twister');
+
+% Create an empty 3D occupancy Map. The maximum width and length of map
+% is 200m and 200m respectively.
+omap3D = occupancyMap3D;
+Widthm = 200;
+mgth = 200;
+
+% Set number of obstacles
+numberOfObstacles = 10;
+
+
+% Generate Obstacles one after another using a while loop.
+obstacleNumber = 1;
+
+
+while obstacleNumber <= numberOfObstacles
+    width = randi([1 50],1); %random integer value between 1 to 50
+    length = randi([1 50], 1);
+    height = randi([1 150], 1);
+    xPosition = randi([0 Widthm - width], 1);
+    yPosition = randi([0 mapLength - length], 1);
+
+    [xObstacle,yObstacle,zObstacle] = meshgrid(xPosition:xPosition+width, ...
+        yPosition:yPosition+length,0:height);
+    xyzObstacles = [xObstacle(:) yObstacle(:) zObstacle(:)];
+
+    checkIntersection = false;
+    for i = 1:size(xyzObstacles,1)
+         if checkOccupancy(omap3D,xyzObstacles(i,:)) == 1
+            checkIntersection = true;
+            break
+        end
+    end
+    if checkIntersection
+        continue
+    end
+
+    setOccupancy(omap3D,xyzObstacles,1)
+
+    obstacleNumber = obstacleNumber + 1;
+end
+[xGround,yGround,zGround] = meshgrid(0:Widthm,0:mapLength,0);
+xyzGround = [xGround(:) yGround(:) zGround(:)];
+setOccupancy(omap3D,xyzGround,1)
+save("omap3D.mat","omap3D")
+
+%startPose = [12 22 25 pi/2];
+%goalPose = [150 180 35 pi/2];
+%%%figure("Name","3D Occupancy Map")
+%hMap = show(omap3D);
+%hold on
+%scatter3(hMap,startPose(1),startPose(2),startPose(3),30,"red","filled")
+%scatter3(hMap,goalPose(1),goalPose(2),goalPose(3),30,"green","filled")
+%hold off
+%view([-31 63])
+
+

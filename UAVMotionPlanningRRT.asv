@@ -1,0 +1,12 @@
+% Motion Planning with Rapidly Exploring Random Tree (RRT) Algorithm for 
+% Fixed-Wing UAV.
+
+% Generate Seed for Repeatable Results.
+
+rng(1, "twister")
+
+mapData = load("omap3D.mat","omap3D");
+omap = mapData.omap3D;
+% Consider unknown spaces to be unoccupied.
+
+omap.FreeThreshold = omap.OccupiedThreshold;
