@@ -7,6 +7,7 @@
 % Three Dimensional Occupancy Map with Navigation Toolbox
 rng(7, 'twister');
 
+%% Map Generation
 % Create an empty 3D occupancy Map. The maximum width and length of map
 % is 450m and 450m respectively.
 omap3D = occupancyMap3D;
@@ -19,7 +20,7 @@ numberOfObstacles = 15;
 % Generate Obstacles one after another using a while loop.
 obstacleNumber = 1;
 
-
+%% Obstacle Generation
 while obstacleNumber <= numberOfObstacles
     width = randi([1 100],1); %random integer value between 1 to 50
     length = randi([1 100], 1);

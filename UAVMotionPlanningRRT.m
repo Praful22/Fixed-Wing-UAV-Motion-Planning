@@ -1,5 +1,7 @@
 % Motion Planning with Rapidly Exploring Random Tree (RRT) Algorithm for 
 % Fixed-Wing UAV.
+% Tools Used: Navigation and UAV Toolbox
+
 
 % Generate Seed for Repeatable Results.
 
@@ -29,4 +31,13 @@ scatter3(hMap,goalPose(1),goalPose(2),goalPose(3),30,"green","filled")
 hold off
 view([-31 63])
 
-%% 
+%  Connection using uavDubinsConnection to connect two poses 
+%  as a sequence of motion (initial & goal)
+
+
+%% Sampling-based Motion Planning algorithm in systematic four-step workflow:
+% 1. Represent the state space vector.
+% 2. Define a state validator.
+% 3. Sample new space and check for validity.
+% 4. Represent a collection of valid state as path.
+
