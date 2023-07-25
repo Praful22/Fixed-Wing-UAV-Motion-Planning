@@ -5,3 +5,4 @@ Motion Planning example using Rapidly Exploring Random Trees in MATLAB/Simulink 
 <p align="center">
   <img src="Occupancy3DMap.jpg" width="350" title="hover text">
 </p>
+3D Occupancy Map which contains a set of pregenerated obstacles(15).
