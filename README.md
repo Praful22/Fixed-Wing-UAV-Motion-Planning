@@ -1,4 +1,4 @@
-# Fixed Wing Unmanned Aerial Vehicle Motion Planning
+# Fixed Wing Unmanned Aerial Vehicle Motion Planning (WORK IN PROGRESS)
 Motion Planning example using Rapidly Exploring Random Trees in MATLAB for a fixed-wing unmanned aerial vehicle.
 
 Content Credit: https://www.youtube.com/watch?v=MC5rVN3C920
